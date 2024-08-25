@@ -1,0 +1,8 @@
+use databasename --> for using the database
+show dbs --> for showing all the available dbs 
+show collections --> for showing all the collections in the current dbs
+
+for opening mongoshell --> mongosh
+too see data/documents inside of a collection --> db.collection_name.find()
+to delete the collection -->  db.collection_name.drop()
+

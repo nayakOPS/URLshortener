@@ -1,0 +1,36 @@
+Authentication Patterns
+
+Statefull
+    --which maintains state or data on server side
+
+    Working Architecture in Nodejs
+        Client -- Request for Resource -- Server
+        Server -- Respond With Session uid(Unique Id) -- Client
+
+        Now, the Server has the uid state stored
+        So,When client request for the Resource correspoonding to the uid
+
+        Client / uid : 367 / -- Request for Resource -- Server
+        Server checks who is user (uid) 367 , if the Client is authorized then
+        Server -- Respond to  -- Client
+
+    How to Transfer uid?
+        It can be transfer as:
+
+             | <--------------- Cookies ---------------> |
+      Client | <--------------- Response --------------> | Server
+             | <--------------- Headers ---------------> |
+
+        In SSR using EJS , where we directly communicate to server we can use Cookies
+        Usually in REST API , Headers are most Usually used
+
+    Express Flow
+
+    Client ---> Auth MiddleWare --> EndPoint Route
+                | --> checks for cookie value or uid, if valid calls next() 
+                      else rejects the request
+                    
+    
+
+Stateless
+    --which has no state
